@@ -11,8 +11,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['var(--font-serif)', 'serif'],
-        sans: ['var(--font-sans)', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -73,25 +74,39 @@ const config: Config = {
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0px) translateX(0px)' },
+          '25%': { transform: 'translateY(-15px) translateX(10px)' },
+          '50%': { transform: 'translateY(-8px) translateX(-5px)' },
+          '75%': { transform: 'translateY(-12px) translateX(8px)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(122, 15, 20, 0.4)' },
+          '50%': { boxShadow: '0 0 35px rgba(122, 15, 20, 0.6)' },
+        },
+        'border-shimmer': {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' },
+        },
+        'glow-expand': {
+          '0%': { boxShadow: '0 0 15px rgba(122, 15, 20, 0.3)' },
+          '100%': { boxShadow: '0 0 30px rgba(122, 15, 20, 0.6)' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'float-slow': 'float-slow 6s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+        'border-shimmer': 'border-shimmer 3s ease-in-out infinite',
+        'glow-expand': 'glow-expand 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
       },
     },
   },
